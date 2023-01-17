@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.constants.AppConstants;
-
 public class RegisterPage extends BasePage{
 	
 	
@@ -99,19 +97,22 @@ public class RegisterPage extends BasePage{
 		return getElement(continueBtn);
 	}
 	
+	public WebElement checkErrorText() {
+		return getElement(errorMessage);
+	}
 	public String getErrorText() {
 		return getElement(errorMessage).getText();
 	}
 	
-	public boolean getAccountStatus() {
-		if(getErrorText().contains(AppConstants.ERROR_IN_ACOUNT_CREATION)) {
-			//return getErrorText();
-			return false;
-		}else{
-			//return "Account created sucessfully" ;
-			return true;
-		}
-	}
+//	public boolean getAccountStatus() {
+//		if(getErrorText().contains(AppConstants.ERROR_IN_ACOUNT_CREATION)) {
+//			//return getErrorText();
+//			return false;
+//		}else{
+//			//return "Account created sucessfully" ;
+//			return true;
+//		}
+//	}
 	
 	public AccountCreated fillSignUpForm(String fName, String lName, String emailD, String telephoneD,
 			String faxD, String companyD, String addressD, String zipD, String cityD, 
@@ -136,11 +137,6 @@ public class RegisterPage extends BasePage{
 		
 		getCheckBox().click();
 		getContinueButton().click();
-		
-		if(getAccountStatus()) {
-			
-		}
-		
 		
 		return new AccountCreated(driver);
 		

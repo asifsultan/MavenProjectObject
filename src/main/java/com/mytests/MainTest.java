@@ -25,7 +25,7 @@ public class MainTest {
 		driver.manage().window().maximize();
 		
 		
-		ExcelHelper excel = new ExcelHelper("D:\\Automation scripts\\data1.xlsx");
+		ExcelHelper excel = new ExcelHelper("D:\\Automation scripts\\data.xlsx");
 		int rows = excel.getTotalRows("login");
 		//int col = excel.getTotalColumns("login", 1);
 		System.out.println("Total number of rows: " + rows );
@@ -53,11 +53,12 @@ public class MainTest {
 					
 					);
 		
-				
+			System.out.println("Registration Page url: "+created.getPageUrl());
+			System.out.println("Registration Page title: "+ created.getPageTitle());	
 			created.logout();
 			excel.writeData("login", i, 14, "Pass");
 			excel.writeData("login", i, 15, AppConstants.REGISTERED_SUCCESS_PAGE_TITLE );
-			System.out.println("Account creation status:"+  "");
+			
 			
 			System.out.println("Test execution for user " + excel.getStringData("login", i, 0) + " is sucessful");
 			

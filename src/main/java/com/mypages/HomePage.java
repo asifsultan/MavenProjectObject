@@ -10,6 +10,8 @@ public class HomePage extends BasePage{
 	
 	public HomePage(WebDriver driver) {
 		super(driver);
+	//	wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		
 		// TODO Auto-generated constructor stub
 //		if (!getPageTitle().equals(AppConstants.HOME_PAGE_TITLE)) {
 //			throw new IllegalStateException(
@@ -20,7 +22,7 @@ public class HomePage extends BasePage{
 	public 	By continueBtn = By.xpath("//button[@title='Continue']");
 	
 	
-
+	
 
 	public WebElement getLoginLink() {
 		
